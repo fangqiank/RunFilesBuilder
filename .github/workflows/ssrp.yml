@@ -8,6 +8,8 @@
 name: Make ShadowsocksPlus+ run files
 
 on:
+  schedule:
+    - cron: '0 */6 * * *'
   workflow_dispatch:
     inputs:
       package_version:
@@ -17,6 +19,7 @@ on:
 
 jobs:
   build:
+    if: ${{ github.repository == fangqiank/RunFilesBuilder'}}
     runs-on: ubuntu-22.04 
 
     steps:
